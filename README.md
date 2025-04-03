@@ -24,25 +24,35 @@ Week 6 → final visualizations and polish, ready to share visuals and write up
 
 # Let's Start the Project 
 
+## Getting the Data 
+
+For this project, you will use a dataset collected from college student surveys, which would contain lifestyle and study-related factors that could affect GPA. The first step would be to come up with questions for the survey. You could use 'Qualtrics' or 'Google Forms' for this. A few factors for example could be something like study hours, sleep hours, extracurricular hours, stress level, or time management. I think we should try and aim to get 150-200 responses if possible? Once we have our responses, we can convert them to a dataset and familiarize ourselves with the data.
+
+## Libraries 
+
+For this project we will be using these libraries: 'pandas' for loading and cleaning data, 'numpy' for numerical operations, 'matplotlib' for plotting graphs, 'seaborn' for visualizations, and scikit-learn (sklearn) - for machine learning models. 
+
 ## Understanding the Data 
 
-For this project, you will use a dataset collected from college student surveys, which would contain lifestyle and study-related factors that could affect GPA. The first step would be to come up with questions for the survey. A few factors for example could be something like study hours, sleep hours, extracurricular hours, stress level, or time management. I think we should try and aim to get 150-200 responses if possible? Once we have our responses, we can convert them to a dataset and familiarize ourselves with the data.
+
 
 ## Techniques We Will Use
 
+We will use the sklearn library for this. 
+
 Linear Regression (baseline model)
 
-Linear Regression is a simple model that draws a straight-line relationship between inputs and the outcome (GPA). This technique is really good for getting started and setting a benchmark.
+Linear Regression is a simple model that draws a straight-line relationship between inputs and the outcome (GPA). This technique is really good for getting started and setting a benchmark. *Hint* We can use 'sklearn.linear_model' which contains 'LinearRegression'.
+
 Decision Tree Regression
 
-This is a model that splits the data into branches based on feature values. It captures non-linear relationships better than linear regression.
-Random Forest Regression
+This is a model that splits the data into branches based on feature values. It captures non-linear relationships better than linear regression. *Hint* We can use 'sklearn.tree' which contains 'DecisionTreeRegressor'.
 
-This is basically an ensemble of many decision trees working together.
+You might also need to use 'sklearn.model_selection' which contains the 'train_test_split'. The purpose of this is to split the dataset into 2 parts, where one trains the model, and one tests how well it performs on the data. You can split your features (X) and lables (y) into 'X_train', 'X_test', 'y_train', and 'y_test'. You can also use 'sklearn.preprocessing' which contains 'StandardScaler'. This helps standardize your features byr emoving the mean and scaling to unit variance. You would use this to fit in on your training data, and then transform both training and test sets the same way. You can also use 'sklearn.metrics' which contains 'r2_score', and 'mean_squared_error'. 'r2_score' tells you how well your model explains the variability in the data. Basically, the closer it would be to 1 means teh better it is. A score of 0 would mean the model is no better than just predicting the average GPA. The MSE (mean squared error) measures how far off your predictions are from the true values, but it squares the errors, so that the big mistakes are looked at more. You would interpret this as the lower the MSE, the better. You can use this to compare how each regression model performs. 
 
 ## Feature Importance Analysis
 
-After building our models, we will look at which features had the most weight in Linear Regression and which features were used most frequently in Decision Trees. For example, we could see whether study hours or sleep have a bigger impact on GPA.
+After building our models, we will look at which features had the most weight in Linear Regression and which features were used most frequently in Decision Trees. For example, we could see whether study hours or sleep have a bigger impact on GPA. In Linear Regression you would check the coefficients of each feature. The bigger values (positive or negative) would mean that the feature had more influence. In Decision Trees, teh features that appear higher up in the tree or are used more frequently in splits are more important. 
 
 ## Visualizations 
 
