@@ -34,7 +34,17 @@ For this project we will be using these libraries: 'pandas' for loading and clea
 
 ## Understanding the Data 
 
-
+First, make sure you have loaded the data. 
+```
+df = pd.read_csv("your_file.csv")
+```
+Then, make sure you have imported the libraries for EDA(exploratory data analysis) and visualization. 
+```
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+```
+A few useful functions for exploration are 'df.info()' which gives the summary of column names, data types, and non-null counts. Another is 'df.head()' which shows the first few rows, which can be useful for previewing column context. You can also use 'df.describe()' to give basic stats like mean, min, max, and percentiles for numeric columns. 
 
 ## Techniques We Will Use
 
