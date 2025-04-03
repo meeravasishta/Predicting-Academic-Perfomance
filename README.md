@@ -52,18 +52,57 @@ You might also need to use 'sklearn.model_selection' which contains the 'train_t
 
 ## Feature Importance Analysis
 
-After building our models, we will look at which features had the most weight in Linear Regression and which features were used most frequently in Decision Trees. For example, we could see whether study hours or sleep have a bigger impact on GPA. In Linear Regression you would check the coefficients of each feature. The bigger values (positive or negative) would mean that the feature had more influence. In Decision Trees, teh features that appear higher up in the tree or are used more frequently in splits are more important. 
+After building our models, we will look at which features had the most weight in Linear Regression and which features were used most frequently in Decision Trees. For example, we could see whether study hours or sleep have a bigger impact on GPA. In Linear Regression you would check the coefficients of each feature. The bigger values (positive or negative) would mean that the feature had more influence. In Decision Trees, the features that appear higher up in the tree or are used more frequently in splits are more important. 
 
 ## Visualizations 
 
-Lets create three visualizations
+Lets create three visualizations. I have provided a guided setup for making each visualization. 
 
-1) Actual vs. Predicted GPA Plot - scatter plot that compares real GPAs vs. what the model predicted which would help us assess how accurate the model is.
+1) Actual vs. Predicted GPA Plot - scatter plot that compares real GPAs vs. what the model predicted which would help us assess how accurate the model is. 
+```
+# After training your model, use it to predict on the test data
+# y_pred = model.predict(X_test)
 
+# Create a scatter plot comparing actual vs. predicted GPA
+# Use a plotting library (like matplotlib or seaborn)
+
+# X-axis: y_test (actual GPA)
+# Y-axis: y_pred (predicted GPA)
+
+# Add a reference line showing perfect predictions (y = x)
+# Helps you visually see if predictions are above or below the actual values
+```
 2) Heatmaps - shows the correlations between all variables and it helps us spot patterns early in the process.
+```
+# Make sure the dataset is numeric (drop or encode categoricals if needed)
+# Use the .corr() function to compute a correlation matrix
+# corr_matrix = df.corr()
 
-3) Feature Importance Chart - Bar plot that shows which features the model relied on the most.
+# Use a heatmap tool (like seaborn.heatmap)
+# Set annot=True if you want the correlation values to show in each square
+```  
 
+4) Feature Importance Chart - Bar plot that shows which features the model relied on the most.
+Linear Regression:
+```
+# Get the .coef_ values from your linear model
+# These are the feature weights
+
+# Pair each coefficient with the corresponding feature name
+# (you can get the feature names from your original dataframe or feature set)
+
+# Take absolute values of coefficients if you want to rank by strength
+
+# Sort the values before plotting
+``` 
+Decision Tree:
+```
+# Use the .feature_importances_ attribute from the tree model
+
+# Combine these with your feature names
+
+# Plot a bar chart with the top features
+``` 
 ## Deliverables 
 
 By the end of this project we should have a clean, well-documented dataset, a regression model that predicts GPA, feature importance findings, and visualizations comparing actual vs predicted GPA. We can include our findings at the end as well. For example we can answer these questions: What survey features do we expect to be most predictive? How should we handle categorical data like time-management? Should we try multiple models or focus on one? What would success look like for our model?
