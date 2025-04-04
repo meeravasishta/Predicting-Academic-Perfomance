@@ -1,4 +1,4 @@
-# Predicting-Academic-Perfomance
+# template-Predicting-Academic-Perfomance
 
 ## Project Objective 
 
